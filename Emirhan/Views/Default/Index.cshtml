@@ -1,0 +1,126 @@
+﻿@model Viewmodel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+
+
+
+<section class="page-section clearfix">
+    
+        <div class="col align-self-center">
+            <div class="card mb-3" id="cardd">
+                <img class="card-img-top" src="~/Content/img/efsane-indirim-kampanya.png" alt="Card image cap" height="300px">
+                <div class="card-body">
+                    <h5 class="card-title" id="carddyazi">Tüm ürünlerde %25 İndirim Fırsatı</h5>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="row justify-content-center">
+                @{var tek = true; }
+                @foreach (var urun in Model.Elektroniklist)
+                {
+                    <div class="col-md-4">
+                        <div class="card urun">
+                            <div class="card-body">
+                                <img class="card-img-top" src="~/Content/img/@urun.resim" alt="" height="270" id="res">
+                                <p class="card-text" id="urunbilgi">@Html.Raw(urun.urunbilgi)</p>
+                                <h4>
+                                    <p class="card-text" id="fiyat">
+                                        <span class="fiyat">@Html.Raw(urun.fiyat)</span> ₺
+                                    </p>
+                                </h4>
+                                <button class="btn btn-primary ekle">Sepete Ekle</button>
+                            </div>
+                        </div>
+                    </div>
+                    tek = !tek;
+                }
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="row justify-content-center">
+                    @{var tek1 = true; }
+                    @foreach (var urun in Model.Giyimlist)
+                    {
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="~/Content/img/@urun.resim" alt="" height="350" id="res">
+                                    <p class="card-text" id="urunbilgi">@Html.Raw(urun.urunbilgi)</p>
+                                    <p class="card-text" id="fiyat">
+                                        <span class="fiyat">@Html.Raw(urun.fiyat)</span> ₺
+                                    </p>
+                                    <button class="btn btn-primary ekle">Sepete Ekle</button>
+                                </div>
+                            </div>
+                        </div>
+                        tek1 = !tek1;
+                    }
+                </div>
+            </div>
+        </div>
+        </section>
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="row justify-content-center">
+                    @{var tek2 = true; }
+                    @foreach (var urun in Model.Sporoutdoorlist)
+                    {
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="~/Content/img/@urun.resim" alt="" height="350" id="res">
+                                    <p class="card-text" id="urunbilgi">@Html.Raw(urun.urunbilgi)</p>
+                                    <p class="card-text" id="fiyat">
+                                        <span class="fiyat">@Html.Raw(urun.fiyat)</span> ₺
+                                    </p>
+                                    <button class="btn btn-primary ekle">Sepete Ekle</button>
+                                </div>
+                            </div>
+                        </div>
+                        tek2 = !tek2;
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+            <section class="page-section cta">
+                <div class="container">
+                    <div class="row">
+                        <div class="row justify-content-center">
+                            @{var tek3 = true; }
+                            @foreach (var urun in Model.Saataksesuarslist)
+                            {
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <img class="card-img-top" src="~/Content/img/@urun.resim" alt="" height="350" id="res">
+                                            <p class="card-text" id="urunbilgi">@Html.Raw(urun.urunbilgi)</p>
+                                            <p class="card-text" id="fiyat">
+                                                <span class="fiyat">@Html.Raw(urun.fiyat)</span> ₺
+                                            </p>
+                                            <button class="btn btn-primary ekle">Sepete Ekle</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                tek3 = !tek3;
+                            }
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+

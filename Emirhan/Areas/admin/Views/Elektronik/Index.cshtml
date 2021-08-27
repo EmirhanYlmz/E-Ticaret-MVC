@@ -1,0 +1,147 @@
+﻿@model List<Emirhan.Models.elektronik>
+@{
+    ViewBag.Title = "Elektronik";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Ürünler</h1>
+                    @Html.ActionLink("Yeni Ürün Ekle","Yeni",null, new {@class="btn btn-primary mx-4"})
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Ana sayfa</a></li>
+                        <li class="breadcrumb-item active">Ürünler</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Ürün Listesi</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Foto</th>
+                                    <th>Başlık</th>
+                                    <th>Ürün Bilgi</th> 
+                                    <th>Kategori</th>
+                                    <th>Aktif</th>
+                                    <th>Sıra</th>
+                                    <th>Güncelle</th>
+                                    <th>Sil</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var eurun in Model)
+                                {
+
+                                <tr>
+                                    <td><img src="~/Content/img/@eurun.resim" width="100" /></td>
+                                    <td>@eurun.baslik</td>
+                                    <td width="200">@eurun.urunbilgi</td>
+                                    <td>@eurun.kategori</td>                                   
+                                    <td>
+                                        @if (eurun.aktifMi == true)
+                                        {
+                                            <i class="text-green fas fa-check"></i> }
+                                        else
+                                        {
+                                            <i class="text-red fas fa-times"></i>}
+                                    </td>
+                                    <td>@eurun.sira</td>
+                                    <td>
+                                        @Html.ActionLink("Güncelle", "Guncelle", new { eurun.eid }, new { @class = "btn btn-info mx-4" })
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#sil_@eurun.eid">
+                                            Sil
+                                        </button>
+                                        <div class="modal fade" id="sil_@eurun.eid">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Yazı</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h4>Ürünü silmek istiyor musunuz ?</h4>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                                                        @Html.ActionLink("Sil", "Sil", new { eurun.eid }, new { @class = "btn btn-danger" })
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                    </td>
+                                </tr>}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Foto</th>
+                                    <th>Başlık</th>
+                                    <th>Ürün Bilgi</th>
+                                    <th>Kategori</th>
+                                    <th>Aktif</th>
+                                    <th>Sıra</th>
+                                    <th>Güncelle</th>
+                                    <th>Sil</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+@section altTaraf
+    {   
+    <!-- DataTables -->
+    <script src="~/Content/Admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/Admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/Admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+}

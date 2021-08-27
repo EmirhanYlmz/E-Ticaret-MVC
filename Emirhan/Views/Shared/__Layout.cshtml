@@ -1,0 +1,138 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html style="height:100%;" lang="tr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>@ViewBag.Title</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/css/business-casual.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+<style>
+    .urun {
+        margin-top: 5%;
+        height: 100%;
+        width: 350px;
+    }
+    .card-text{
+        height:13%;
+        width:105%;
+    }
+</style>
+
+<body class="d-flex flex-column h-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="@Url.Action("Index","Default")">Anka Shop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="@Url.Action("Index","Default")">
+                            ANASAYFA
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item px-lg-4 dropdown">
+                        <a class="nav-link text-uppercase text-expanded dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            ELEKTRONİK
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="@Url.Action("Telefon","Default")">Telefon</a>
+                            <a class="dropdown-item" href="@Url.Action("Laptop","Default")">Dizüstü Bilgisayar</a>
+                            <a class="dropdown-item" href="@Url.Action("Bilgisayar","Default")">Bilgisayar</a>
+                        </div>
+                    </li>
+                    <li class="nav-item px-lg-4 dropdown">
+                        <a class="nav-link text-uppercase text-expanded dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            GİYİM
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="@Url.Action("Tshirt","Default")">T-Shirt</a>
+                            <a class="dropdown-item" href="@Url.Action("Pantalon","Default")">Pantalon</a>
+                            <a class="dropdown-item" href="@Url.Action("Gömlek","Default")">Gömlek</a>
+                        </div>
+                    </li>
+                    <li class="nav-item px-lg-4 dropdown">
+                        <a class="nav-link text-uppercase text-expanded dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            SAAT & AKSESUAR
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="@Url.Action("Takı","Default")">Takı Ve Mücevher</a>
+                            <a class="dropdown-item" href="@Url.Action("TakıErkek","Default")">Erkek</a>
+                            <a class="dropdown-item" href="@Url.Action("TakıKadın","Default")">Kadın</a>
+                        </div>
+                    </li>
+                    <li class="nav-item px-lg-4 dropdown">
+                        <a class="nav-link text-uppercase text-expanded dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            SPOR & OUTDOOR
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="@Url.Action("Sporgiyim","Default")">Spor Giyim</a>
+                            <a class="dropdown-item" href="@Url.Action("Sporbesin","Default")">Sporcu Besinleri</a>
+                            <a class="dropdown-item" href="@Url.Action("Spormalzeme","Default")">Spor Malzemeleri</a>
+                        </div>
+                    </li>
+                    <li class="nav-item px-lg-4" id="sepet">
+                        <a class="nav-link text-uppercase text-expanded" href="@Url.Action("Sepetsayfasi","Default")">
+                            <img src="~/Content/img/sepet.png" class="rounded float-right" height="25px">
+                        </a>
+                    </li>
+            </div>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Content/script/sepet.js"></script>
+
+    <main class="flex-grow-1 container">
+        @RenderBody()
+    </main>
+
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 small">Anka Haberr &copy; Tüm hakları saklıdır 2020</p>
+        </div>
+    </footer>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+
+
+    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>

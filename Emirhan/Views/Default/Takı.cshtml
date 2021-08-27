@@ -1,0 +1,33 @@
+﻿@model List<Emirhan.Models.saataksesuar>
+@{
+    ViewBag.Title = "Takı";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="row justify-content-center">
+                @{var tek = true; }
+                @foreach (var surun in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <img class="card-img-top" src="~/Content/img/@surun.resim" alt="" height="350" id="res">
+                                <p class="card-text" id="urunbilgi">@Html.Raw(surun.urunbilgi)</p>
+                                <p class="card-text" id="fiyat">
+                                    <span class="fiyat">@Html.Raw(surun.fiyat)</span> ₺
+                                </p>
+                                <button class="btn btn-primary ekle">Sepete Ekle</button>
+                            </div>
+                        </div>
+                    </div>
+                    tek = !tek;
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+

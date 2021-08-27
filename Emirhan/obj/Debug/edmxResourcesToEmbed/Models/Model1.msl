@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="eticaretModelStoreContainer" CdmEntityContainer="eticaretEntities">
+    <EntitySetMapping Name="elektronik">
+      <EntityTypeMapping TypeName="eticaretModel.elektronik">
+        <MappingFragment StoreEntitySet="elektronik">
+          <ScalarProperty Name="eid" ColumnName="eid" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="urunbilgi" ColumnName="urunbilgi" />
+          <ScalarProperty Name="resim" ColumnName="resim" />
+          <ScalarProperty Name="kategori" ColumnName="kategori" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+          <ScalarProperty Name="aktifMi" ColumnName="aktifMi" />
+          <ScalarProperty Name="sira" ColumnName="sira" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="giyim">
+      <EntityTypeMapping TypeName="eticaretModel.giyim">
+        <MappingFragment StoreEntitySet="giyim">
+          <ScalarProperty Name="gid" ColumnName="gid" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="urunbilgi" ColumnName="urunbilgi" />
+          <ScalarProperty Name="resim" ColumnName="resim" />
+          <ScalarProperty Name="kategori" ColumnName="kategori" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+          <ScalarProperty Name="aktifMi" ColumnName="aktifMi" />
+          <ScalarProperty Name="sira" ColumnName="sira" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kullanicilar">
+      <EntityTypeMapping TypeName="eticaretModel.kullanicilar">
+        <MappingFragment StoreEntitySet="kullanicilar">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kad" ColumnName="kad" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="saataksesuar">
+      <EntityTypeMapping TypeName="eticaretModel.saataksesuar">
+        <MappingFragment StoreEntitySet="saataksesuar">
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="basllik" ColumnName="basllik" />
+          <ScalarProperty Name="urunbilgi" ColumnName="urunbilgi" />
+          <ScalarProperty Name="resim" ColumnName="resim" />
+          <ScalarProperty Name="kategori" ColumnName="kategori" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+          <ScalarProperty Name="aktifMi" ColumnName="aktifMi" />
+          <ScalarProperty Name="sira" ColumnName="sira" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sporoutdoor">
+      <EntityTypeMapping TypeName="eticaretModel.sporoutdoor">
+        <MappingFragment StoreEntitySet="sporoutdoor">
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="urunbilgi" ColumnName="urunbilgi" />
+          <ScalarProperty Name="resim" ColumnName="resim" />
+          <ScalarProperty Name="kategori" ColumnName="kategori" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+          <ScalarProperty Name="aktifMi" ColumnName="aktifMi" />
+          <ScalarProperty Name="sira" ColumnName="sira" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

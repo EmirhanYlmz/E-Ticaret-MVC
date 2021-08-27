@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="emirhanModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="gundem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="baslik" Type="text" Nullable="false" />
+    <Property Name="altBaslik" Type="text" Nullable="false" />
+    <Property Name="icerik" Type="text" Nullable="false" />
+    <Property Name="resim" Type="text" Nullable="false" />
+    <Property Name="aktifMi" Type="bool" />
+    <Property Name="sira" Type="int" />
+  </EntityType>
+  <EntityType Name="magazin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="baslik" Type="text" Nullable="false" />
+    <Property Name="altBaslik" Type="text" Nullable="false" />
+    <Property Name="icerik" Type="text" Nullable="false" />
+    <Property Name="resim" Type="text" Nullable="false" />
+    <Property Name="aktifMi" Type="bool" />
+    <Property Name="sira" Type="int" />
+  </EntityType>
+  <EntityType Name="spor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="baslik" Type="text" Nullable="false" />
+    <Property Name="altBaslik" Type="text" Nullable="false" />
+    <Property Name="icerik" Type="text" Nullable="false" />
+    <Property Name="resim" Type="text" Nullable="false" />
+    <Property Name="aktifMi" Type="bool" />
+    <Property Name="sira" Type="int" />
+  </EntityType>
+  <EntityType Name="yazilar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="baslik" Type="text" Nullable="false" />
+    <Property Name="altBaslik" Type="text" Nullable="false" />
+    <Property Name="icerik" Type="text" Nullable="false" />
+    <Property Name="resim" Type="text" Nullable="false" />
+    <Property Name="aktifMi" Type="bool" />
+    <Property Name="sira" Type="int" />
+  </EntityType>
+  <EntityContainer Name="emirhanModelStoreContainer">
+    <EntitySet Name="gundem" EntityType="Self.gundem" Schema="emirhan" store:Type="Tables" />
+    <EntitySet Name="magazin" EntityType="Self.magazin" Schema="emirhan" store:Type="Tables" />
+    <EntitySet Name="spor" EntityType="Self.spor" Schema="emirhan" store:Type="Tables" />
+    <EntitySet Name="yazilar" EntityType="Self.yazilar" Schema="emirhan" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

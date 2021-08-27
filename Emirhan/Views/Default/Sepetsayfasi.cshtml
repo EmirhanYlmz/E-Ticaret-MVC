@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "Sepetsayfasi";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+<div class="row mt-3">
+    <div class="col-md-8">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Açıklama</th>
+                    <th scope="col">Resim</th>
+                    <th scope="col">Fiyat</th>
+                    <th scope="col">Miktar</th>
+                    <th scope="col">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody id="urunler">
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <h5 class="card-header">
+                Sipariş özeti
+            </h5>
+            <div class="card-body">
+                <p class="mb-0" id="toplamfiyat"></p>      
+                <div style="display:flex;margin-top: 15px;justify-content: flex-end; align-items: center;">
+                    <button id="sepettemizle" class="btn btn-danger btn-sm  mr-2">
+                        Sepeti temizle
+                    </button>
+                    <button id="siparistamam" class="btn btn-success btn-sm">
+                        Siparişi onayla
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="siparismodal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Başarılı!</h5>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;text-align: center;" class="modal-body">
+                <img width="150" src="~/Content/img/sonay.png" />
+                <h5 id="onaymsg" class="mt-4"></h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary modal-kapa">Tamam</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+
+        $(document).ready(function () {
+            var urunler = JSON.parse(localStorage.getItem('urun'));
+            if (urunler && urunler.length == 0 || !urunler) {
+                $('#urunler').append(`
+                    <tr class="display: flex;">
+                        <td style="align-items: center; justify-content: center; text-align: center" colspan="5">Ürün bulunamadı!</td>
+                    </tr>
+                `)
+            }
+            var toplamfiyat = 0;
+            $.each(urunler, function (key, value) {
+                fiyat = parseInt(urunler[key].Fiyat) * parseInt(urunler[key].Miktar)
+                toplamfiyat = toplamfiyat + parseInt(fiyat);
+            });
+            $('#toplamfiyat').text(`Toplam ödenecek tutar: ${Intl.NumberFormat().format(toplamfiyat)} ₺`)
+
+            //console.log(urunler);
+
+            $.each(urunler, function (key, value) {
+
+                // urunler[key].UrunAd
+                
+                //$("body").append('<span class="badge rounded-pill bg-info text-dark">Ürün Resmi:</span>' + "<img src=" + urunler[key].Resim + ">" + '<span class="badge rounded-pill bg-info text-dark">Ürün Açıklama:</span>' + urunler[key].Aciklama + "<hr>");
+                $('#urunler').append(`
+                <tr>
+                    <td scope="row">${urunler[key].Aciklama}</td>
+                    <td>
+                        <img width="150" src="${urunler[key].Resim}" />
+                    </td>
+                    <td scope="row">${urunler[key].Fiyat} ₺</td>
+                    <td scope="row">${urunler[key].Miktar}</td>
+                    <td scope="row">
+                       <button data-urun="${key}" class="btn btn-sm btn-danger uruncikar">Sepetten çıkar</button>
+                    </td>
+                </tr>
+                `)
+
+            });
+
+            $('.uruncikar').on('click', function () {
+                var id = $(this).data('urun');
+                var urunler = JSON.parse(localStorage.getItem('urun'));
+                var urunCikar = confirm("Ürünü sepetten çıkarmak istediğinize emin misiniz?");
+                if (urunCikar) {
+                    for (var i = 0; i < urunler.length; i++) {
+                        if (i === id) {
+                            urunler.splice(i, 1);
+                        }
+                    }
+                    localStorage.setItem('urun', JSON.stringify(urunler));
+                    window.location.reload();
+                }
+            })
+        });
+        $('#siparistamam').on('click', function () {
+            var myModal = new bootstrap.Modal(document.getElementById('siparismodal'))
+            myModal.show()
+            var urunler = JSON.parse(localStorage.getItem('urun'));
+            var toplamfiyat = 0;
+            $.each(urunler, function (key, value) {
+                fiyat = parseInt(urunler[key].Fiyat) * parseInt(urunler[key].Miktar)
+                toplamfiyat = toplamfiyat + parseInt(fiyat);
+            });
+            $('#onaymsg').text(`Siparişiniz Onaylanmıştır !`)
+        });
+
+        $('.modal-kapa').on('click', function () {
+            var myModal = new bootstrap.Modal(document.getElementById('siparismodal'))
+            $('body').removeClass('modal-open')
+            $('#siparismodal').hide();
+            $('.modal-backdrop').hide();
+            var urunler = [];
+            localStorage.setItem('urun', JSON.stringify(urunler))
+            window.location.href = "/"
+        });
+
+        $('#sepettemizle').on('click', function() {
+            var urunler = [];
+            localStorage.setItem('urun', JSON.stringify(urunler))
+            window.location.reload();
+        });
+
+    </script>

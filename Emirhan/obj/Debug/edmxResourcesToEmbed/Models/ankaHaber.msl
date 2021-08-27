@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="emirhanModelStoreContainer" CdmEntityContainer="emirhanEntities">
+    <EntitySetMapping Name="gundem">
+      <EntityTypeMapping TypeName="emirhanModel.gundem">
+        <MappingFragment StoreEntitySet="gundem">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="altBaslik" ColumnName="altBaslik" />
+          <ScalarProperty Name="icerik" ColumnName="icerik" />
+          <ScalarProperty Name="resim" ColumnName="resim" />
+          <ScalarProperty Name="aktifMi" ColumnName="aktifMi" />
+          <ScalarProperty Name="sira" ColumnName="sira" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="magazin">
+      <EntityTypeMapping TypeName="emirhanModel.magazin">
+        <MappingFragment StoreEntitySet="magazin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="altBaslik" ColumnName="altBaslik" />
+          <ScalarProperty Name="icerik" ColumnName="icerik" />
+          <ScalarProperty Name="resim" ColumnName="resim" />
+          <ScalarProperty Name="aktifMi" ColumnName="aktifMi" />
+          <ScalarProperty Name="sira" ColumnName="sira" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spor">
+      <EntityTypeMapping TypeName="emirhanModel.spor">
+        <MappingFragment StoreEntitySet="spor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="altBaslik" ColumnName="altBaslik" />
+          <ScalarProperty Name="icerik" ColumnName="icerik" />
+          <ScalarProperty Name="resim" ColumnName="resim" />
+          <ScalarProperty Name="aktifMi" ColumnName="aktifMi" />
+          <ScalarProperty Name="sira" ColumnName="sira" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="yazilar">
+      <EntityTypeMapping TypeName="emirhanModel.yazilar">
+        <MappingFragment StoreEntitySet="yazilar">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="altBaslik" ColumnName="altBaslik" />
+          <ScalarProperty Name="icerik" ColumnName="icerik" />
+          <ScalarProperty Name="resim" ColumnName="resim" />
+          <ScalarProperty Name="aktifMi" ColumnName="aktifMi" />
+          <ScalarProperty Name="sira" ColumnName="sira" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
